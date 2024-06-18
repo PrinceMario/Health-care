@@ -26,21 +26,20 @@ Build various interactive charts, donout chart, column chart, show average patie
 <pre>
  <code>
  Average wait list = AVERAGE(All_Data[Total])
+  
  Avg/Med wait list = SWITCH(VALUES('Calculation Method'[Calc Method]), "Average", 'Measure table'[Average wait list], "Median", 'Measure table'[Median wait list])
+  
  Dynamic title = SWITCH(VALUES('Calculation Method'[Calc Method]), "Average", "Patient wait list(Average)", "Median", "Patient wait list(Median)")
+  
  Lastest month wait list = CALCULATE( SUM(All_Data[Total]), All_Data[Archive_Date] = MAX(All_Data[Archive_Date]))
+  
  Median wait list = MEDIAN(All_Data[Total])
+  
  No data left = if (ISBLANK(CALCULATE(sum(All_Data[Total]), All_Data[Case_Type] <> "Outpatient")), "No data for selected criteria", "")
+  
  No data right = if (ISBLANK(CALCULATE(sum(All_Data[Total]), All_Data[Case_Type] = "Outpatient")), "No data for selected criteria", "")
+  
  PY Lastest month wait list = CALCULATE( SUM(All_Data[Total]), All_Data[Archive_Date] = EDATE(MAX(All_Data[Archive_Date]), -12)) + 0
-
-  
- Latest Month Wait List = CALCULATE(SUM(All_Data[Total]),All_Data[Archive_Date] = MAX(All_Data[Archive_Date])) + 0
-
-PY Latest Month Wait List = CALCULATE(SUM(All_Data[Total]),All_Data[Archive_Date]= EDATE(MAX(All_Data[Archive_Date]),-12)) + 0
-
-Avg/Med Wait List = SWITCH(VALUES('Calculation Method'[Calc Method]),"Average",[Average Wait List],"Median",[Median Wait List]) 
-  
 
  </code>
 </pre>
