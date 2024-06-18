@@ -25,6 +25,16 @@ Build various interactive charts, donout chart, column chart, show average patie
 ####  Some of the measures created using Power Bi DAX  
 <pre>
  <code>
+ Average wait list = AVERAGE(All_Data[Total])
+ Avg/Med wait list = SWITCH(VALUES('Calculation Method'[Calc Method]), "Average", 'Measure table'[Average wait list], "Median", 'Measure table'[Median wait list])
+ Dynamic title = SWITCH(VALUES('Calculation Method'[Calc Method]), "Average", "Patient wait list(Average)", "Median", "Patient wait list(Median)")
+ Lastest month wait list = CALCULATE( SUM(All_Data[Total]), All_Data[Archive_Date] = MAX(All_Data[Archive_Date]))
+ Median wait list = MEDIAN(All_Data[Total])
+ No data left = if (ISBLANK(CALCULATE(sum(All_Data[Total]), All_Data[Case_Type] <> "Outpatient")), "No data for selected criteria", "")
+ No data right = if (ISBLANK(CALCULATE(sum(All_Data[Total]), All_Data[Case_Type] = "Outpatient")), "No data for selected criteria", "")
+ PY Lastest month wait list = CALCULATE( SUM(All_Data[Total]), All_Data[Archive_Date] = EDATE(MAX(All_Data[Archive_Date]), -12)) + 0
+
+  
  Latest Month Wait List = CALCULATE(SUM(All_Data[Total]),All_Data[Archive_Date] = MAX(All_Data[Archive_Date])) + 0
 
 PY Latest Month Wait List = CALCULATE(SUM(All_Data[Total]),All_Data[Archive_Date]= EDATE(MAX(All_Data[Archive_Date]),-12)) + 0
@@ -40,10 +50,10 @@ Avg/Med Wait List = SWITCH(VALUES('Calculation Method'[Calc Method]),"Average",[
 
 ### Report Preview
 
-![summary analysis](https://github.com/deepanshak/HealthCare-Data-Analytics/assets/139687677/197a8483-b2a2-43a0-a29a-e54d919a8b8b)
+![Preview 1](https://github.com/PrinceMario/Health-care/assets/172631198/bc4082aa-9448-44a3-9cc3-9dee5240a40c)
 
 
-![detail analysis](https://github.com/deepanshak/HealthCare-Data-Analytics/assets/139687677/681cb257-22a6-4b8a-bf00-8007719cd906)
+![Preview 2](https://github.com/PrinceMario/Health-care/assets/172631198/2b4ed11a-583f-4c6d-be47-b09643d42bfb)
 
 ## Tech Stack
 Project makes use of the following key technologies:
