@@ -2,8 +2,7 @@
 
 ![Data-Analytics](https://github.com/PrinceMario/Health-care/assets/172631198/49dbec3e-58c2-41e1-b7f2-311fee029bcf)
 
-
-
+Dashboard: https://app.powerbi.com/groups/me/reports/64b80959-dbd1-4757-8d88-31449a1b1b50/791121e85ea3518191a4?experience=power-bi
 
 ## Project Overview
  This project includes end to end in depth analysis of publicly available healthcare data  regarding patient wating list containig 2 categories inpatient and outpatient using power bi.
